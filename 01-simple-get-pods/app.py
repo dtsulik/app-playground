@@ -37,9 +37,10 @@ def test(arg):
 def cani():
     rv = ""
     try:
-        ret = v1.list_pod_for_all_namespaces(watch=False)
+        # ret = v1.list_pod_for_all_namespaces(watch=False)
+        ret = v1.list_namespaced_pod(namespace)
         for i in ret.items:
-            rv += f"{i.status.pod_ip}\t{i.metadata.namespace}\t{i.metadata.name}\t"
+            rv += f"{i.status.pod_ip}\t{i.metadata.namespace}\t{i.metadata.name}\n"
     except Exception as e:
         rv = f"Unable to execute request for kubernetes cluster {str(e)}"
     return rv
