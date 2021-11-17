@@ -33,12 +33,8 @@ v1 = client.CoreV1Api(client.ApiClient(kubeconfig))
 def test(arg):
    return f"{arg} is OK!"
 
-@app.route('/job/<name>/<int:reps>')
-def job(name, reps):
-   return f"Starting job: {name} {reps} times!"
-
-@app.route('/can-i/<cmd>/<arg1>')
-def cani(cmd, arg1):
+@app.route('/get/pods')
+def cani():
     rv = ""
     try:
         ret = v1.list_pod_for_all_namespaces(watch=False)
