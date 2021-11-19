@@ -1,5 +1,5 @@
-# Simple apps for kube-playground repo
+# App playgroud
 
-This repo will host various apps used in [kube-playground repo](https://github.com/dtsulik/kube-playground). Focus is on exploring microservice architecture and cloud native apps.
+This repo will host various apps. Many of them used in [kube-playground repo](https://github.com/dtsulik/kube-playground). Some of them explore microservice architecture and cloud native.
 
 Please feel free to contribute and open any issues for suggestions or bugs.
