@@ -3,7 +3,7 @@
 import os
 from elasticsearch import Elasticsearch
 es = Elasticsearch()
-
+indexname = 'customfiles'
 config = {
     'host': 'elastic'
 }
@@ -40,17 +40,18 @@ def stat_path(path):
 
     op_dict = {
         "index": {
-            "_index": 'customfiles',
+            "_index": indexname,
             "_type": 'file'
         }
     }
     bulk_data.append(op_dict)
     bulk_data.append(bulk_update)
-    res = es.bulk(index = 'customfiles', body = bulk_data)
+    res = es.bulk(index = indexname, body = bulk_data)
+    #debug
     print(res);
-    res = es.search(body={"query": {"match_all": {} } }, index = 'customfiles')
+    res = es.search(body={"query": {"match_all": {} } }, index = indexname)
     print(res);
-    res = es.indices.get_mapping(index = 'customfiles')
+    res = es.indices.get_mapping(index = indexname)
     print(res);
 
 if __name__ == '__main__':
