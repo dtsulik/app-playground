@@ -1,9 +1,12 @@
-from flask import Flask, request, jsonify
+#!/usr/bin/env python3
+
+from flask import Flask
 from kubernetes import client
 import urllib3
 
 # all init code is done outside any function (for example main)
 # because running flask with 'python3 -m flask run' will not enter main here
+
 app = Flask(__name__)
 kubeconfig = client.Configuration()
 urllib3.disable_warnings()
