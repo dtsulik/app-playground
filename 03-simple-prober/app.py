@@ -6,7 +6,7 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/healthz')
-def health(arg):
+def health():
     if "FAIL_HEALTH" in os.environ:
         return "Not OK!", 400
     return f"OK"
